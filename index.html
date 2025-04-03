@@ -1,8 +1,7 @@
   <!DOCTYPE html>
 <html lang="ru">
 <head>
-  
-                            <!-- Yandex.Metrika counter -->
+  <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
        m[i].l=1*new Date();
@@ -125,6 +124,9 @@
         <button type="submit">Отправить</button>
     </form>
     
+    <button onclick="startCountdown()">Запустить таймер</button>
+    <p id="timer"></p>
+    
     <ul class="pagination">
         <li onclick="changePage(1)" class="active">1</li>
         <li onclick="changePage(2)">2</li>
@@ -159,6 +161,23 @@
 
         function displayMessage() {
             alert("Кнопка нажата! Вот новое сообщение!");
+        }
+
+        function startCountdown() {
+            let countdown = 10;
+            let timerElement = document.getElementById("timer");
+            timerElement.textContent = `Осталось: ${countdown} секунд`;
+            
+            let interval = setInterval(function() {
+                countdown--;
+                timerElement.textContent = `Осталось: ${countdown} секунд`;
+                
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    timerElement.textContent = "Таймер завершен!";
+                    alert("Таймер закончился!");
+                }
+            }, 1000);
         }
     </script>
 </body>
