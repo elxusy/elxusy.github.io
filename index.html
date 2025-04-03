@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-                        <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(100727931, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/100727931" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+                            <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+       ym(100727931, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/100727931" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СВОИ</title>
@@ -41,9 +41,66 @@
             color: red;
             font-size: 14px;
         }
+        .nav-menu {
+            background-color: #333;
+            padding: 10px;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #555;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>Боковое меню</h2>
+        <ul>
+            <li><a href="#">Пункт 1</a></li>
+            <li><a href="#">Пункт 2</a></li>
+            <li><a href="#">Пункт 3</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-menu">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+        <div class="dropdown">
+            <span>Меню</span>
+            <div class="dropdown-content">
+                <p>Элемент 1</p>
+                <p>Элемент 2</p>
+                <p>Элемент 3</p>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <h1>ЮПГ</h1>
         <p>ПЗХ</p>
@@ -62,7 +119,7 @@
         <li onclick="changePage(2)">2</li>
         <li onclick="changePage(3)">3</li>
     </ul>
-
+    
     <script>
         document.getElementById("inputForm").addEventListener("submit", function(event) {
             event.preventDefault();
