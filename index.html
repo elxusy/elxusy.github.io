@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ru">
 <head>
+  
                             <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -44,11 +45,13 @@
         .nav-menu {
             background-color: #333;
             padding: 10px;
+            position: relative;
         }
         .nav-menu a {
             color: white;
             text-decoration: none;
             margin-right: 15px;
+            cursor: pointer;
         }
         .dropdown {
             position: relative;
@@ -72,8 +75,16 @@
             color: white;
             padding: 15px;
             position: fixed;
-            left: 0;
+            left: -220px;
             top: 0;
+            transition: left 0.3s;
+        }
+        .sidebar:hover {
+            left: 0;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
         }
     </style>
 </head>
@@ -81,30 +92,30 @@
     <div class="sidebar">
         <h2>Боковое меню</h2>
         <ul>
-            <li><a href="#">Пункт 1</a></li>
-            <li><a href="#">Пункт 2</a></li>
-            <li><a href="#">Пункт 3</a></li>
+            <li onclick="changeContent('Пункт 1')">Пункт 1</li>
+            <li onclick="changeContent('Пункт 2')">Пункт 2</li>
+            <li onclick="changeContent('Пункт 3')">Пункт 3</li>
         </ul>
     </div>
     
     <div class="nav-menu">
-        <a href="#">Главная</a>
-        <a href="#">О нас</a>
-        <a href="#">Контакты</a>
+        <a onclick="changeContent('Главная')">Главная</a>
+        <a onclick="changeContent('О нас')">О нас</a>
+        <a onclick="changeContent('Контакты')">Контакты</a>
         <div class="dropdown">
             <span>Меню</span>
             <div class="dropdown-content">
-                <p>Элемент 1</p>
-                <p>Элемент 2</p>
-                <p>Элемент 3</p>
+                <p onclick="changeContent('Элемент 1')">Элемент 1</p>
+                <p onclick="changeContent('Элемент 2')">Элемент 2</p>
+                <p onclick="changeContent('Элемент 3')">Элемент 3</p>
             </div>
         </div>
     </div>
     
-    <div class="container">
+    <div class="content" id="content">
         <h1>ЮПГ</h1>
         <p>ПЗХ</p>
-        <button onclick="addItem()">+rEP</button>
+        <button onclick="displayMessage()">+rEP</button>
     </div>
     
     <form id="inputForm">
@@ -140,6 +151,14 @@
             pages.forEach(p => p.classList.remove("active"));
             pages[page - 1].classList.add("active");
             alert("Переключено на страницу " + page);
+        }
+
+        function changeContent(content) {
+            document.getElementById("content").innerHTML = `<h1>${content}</h1><p>Новое содержимое: ${content}</p>`;
+        }
+
+        function displayMessage() {
+            alert("Кнопка нажата! Вот новое сообщение!");
         }
     </script>
 </body>
